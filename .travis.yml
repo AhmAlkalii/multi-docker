@@ -5,20 +5,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t ahmalkali/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t ahmlkali/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true ahmalkali/react-test npm test
+  - docker run -e CI=true ahmlkali/react-test npm test
 
 after_success:
-  - docker build -t ahmalkali/multi-client ./client
-  - docker build -t ahmalkali/multi-nginx ./nginx
-  - docker build -t ahmalkali/multi-server ./server
-  - docker build -t ahmalkali/multi-worker ./worker
+  - docker build -t ahmlkali/multi-client ./client
+  - docker build -t ahmlkali/multi-nginx ./nginx
+  - docker build -t ahmlkali/multi-server ./server
+  - docker build -t ahmlkali/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push ahmalkali/multi-client
-  - docker push ahmalkali/multi-nginx
-  - docker push ahmalkali/multi-server
-  - docker push ahmalkali/multi-worker
+  - docker push ahmlkali/multi-client
+  - docker push ahmlkali/multi-nginx
+  - docker push ahmlkali/multi-server
+  - docker push ahmlkali/multi-worker
