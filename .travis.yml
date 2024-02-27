@@ -22,4 +22,3 @@ after_success:
   - docker push ahmalkali/multi-nginx
   - docker push ahmalkali/multi-server
   - docker push ahmalkali/multi-worker
-
